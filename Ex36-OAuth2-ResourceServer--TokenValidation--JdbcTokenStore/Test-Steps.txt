@@ -1,0 +1,10 @@
+1. Get token from authz server. It stores token in the db.
+curl --location --request POST 'http://localhost:8080/oauth/token?grant_type=password&username=john&password=12345&scope=read' \
+--header 'Authorization: Basic Y2xpZW50OnNlY3JldA=='
+
+2. use resource server api
+curl --location --request GET 'http://localhost:9090/hello' \
+--header 'Authorization: Bearer 03e3d79a-fe9d-44d1-ab0e-314440cf0ff0'
+
+Response:
+Hello

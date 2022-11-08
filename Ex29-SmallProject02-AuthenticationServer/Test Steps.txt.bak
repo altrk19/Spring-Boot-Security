@@ -1,0 +1,28 @@
+1. add user
+curl --location --request POST 'http://localhost:8080/user/add' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: JSESSIONID=F1989796A224CB01A58B1D224A02843E' \
+--data-raw '{
+    "username":"john",
+    "password":"12345"
+}'
+
+2. login with username/password
+curl --location --request POST 'http://localhost:8080/user/auth' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: JSESSIONID=F1989796A224CB01A58B1D224A02843E' \
+--data-raw '{
+    "username":"john",
+    "password":"12345"
+}'
+
+It generates otp and saves db then returns 200
+
+3. otp check
+curl --location --request POST 'http://localhost:8080/otp/check' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: JSESSIONID=F1989796A224CB01A58B1D224A02843E' \
+--data-raw '{
+    "username":"john",
+    "code":"1357"
+}'

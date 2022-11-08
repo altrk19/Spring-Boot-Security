@@ -1,0 +1,28 @@
+1- Success
+curl --location --request GET 'http://localhost:8080/book/details/emma' \
+--header 'Cookie: JSESSIONID=0B0539B49C242B9C17ECD0AF7A4CCE88'
+Resp:
+{
+    "name": "Emma Thompson",
+    "books": [
+        "Karamazov Brothers"
+    ],
+    "roles": [
+        "accountant",
+        "reader"
+    ]
+}
+
+
+2-Fail
+curl --location --request GET 'http://localhost:8080/book/details/natalie' \
+--header 'Cookie: JSESSIONID=0B0539B49C242B9C17ECD0AF7A4CCE88'
+
+Resp:
+{
+    "timestamp": "2022-11-02T13:35:45.910+0000",
+    "status": 403,
+    "error": "Forbidden",
+    "message": "Forbidden",
+    "path": "/book/details/natalie"
+}

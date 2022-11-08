@@ -1,0 +1,17 @@
+1- 
+http://localhost:8080/oauth/authorize?response_type=code&client_id=client&scope=read
+
+2- login with john/12345
+
+3- oauth approval on UI
+
+4- it redirects and gives code
+
+5- copy code and use the following request to get token (postman)
+curl --location --request POST 'http://localhost:8080/oauth/token?grant_type=authorization_code&scope=read&code=K97GV4' \
+--header 'Authorization: Basic Y2xpZW50OnNlY3JldA==' \
+--header 'Cookie: JSESSIONID=19897835765665C01263D50C09DEB7C6'
+
+Note: Basic auth is using
+username:client
+password:secret

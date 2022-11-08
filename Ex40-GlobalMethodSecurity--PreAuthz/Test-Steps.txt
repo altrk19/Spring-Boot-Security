@@ -1,0 +1,20 @@
+Scenario-1:
+curl --location --request GET 'http://localhost:8080/hello' \
+--header 'Authorization: Basic ZW1tYToxMjM0NQ==' \
+--header 'Cookie: JSESSIONID=666A8A80F66F4091358C4374D68AF8F0'
+
+Resp:
+Hello, Fantastico
+
+
+
+Scenario-2:
+curl --location --request GET 'http://localhost:8080/secret/names/emma' \
+--header 'Authorization: Basic ZW1tYToxMjM0NQ==' \
+--header 'Cookie: JSESSIONID=EE0169AD1ADC5CE30C149E19AAD3AAC3'
+
+
+Resp:
+[
+    "Fantastico"
+]

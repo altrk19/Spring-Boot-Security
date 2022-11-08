@@ -1,0 +1,10 @@
+1- get token with password grant type (postman)
+curl --location --request POST 'http://localhost:8080/oauth/token?grant_type=password&username=john&password=12345&scope=read' \
+--header 'Authorization: Basic Y2xpZW50OnNlY3JldA==' \
+--header 'Cookie: JSESSIONID=19897835765665C01263D50C09DEB7C6'
+
+Note: Basic auth is using
+username:client
+password:secret
+
+

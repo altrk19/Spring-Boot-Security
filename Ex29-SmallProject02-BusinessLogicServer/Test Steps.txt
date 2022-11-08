@@ -1,0 +1,24 @@
+Steps:
+-get otp token from auth server
+-send login request with username/code to busines logic server and get token
+-use hello api with token
+
+1. login
+curl --location --request GET 'http://localhost:9090/login' \
+--header 'username: john' \
+--header 'code: 1009' \
+--header 'Cookie: JSESSIONID=FF062AC8FE5D63937E2C85DBD792ACD2'
+
+Note: It includes code
+
+Headers of response login request:
+Authorization:eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImpvaG4ifQ.aFu7q3-Kl4Qs1vU_tGLI82I89vXzlbTnv023VhCXKhA
+
+
+2. hello api
+curl --location --request GET 'localhost:9090/hello' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImpvaG4ifQ.aFu7q3-Kl4Qs1vU_tGLI82I89vXzlbTnv023VhCXKhA' \
+--header 'Cookie: JSESSIONID=19897835765665C01263D50C09DEB7C6'
+
+Response:
+Hello world

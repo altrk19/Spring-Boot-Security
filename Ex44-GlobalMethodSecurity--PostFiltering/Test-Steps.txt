@@ -1,0 +1,30 @@
+Scenario-1:
+curl --location --request GET 'http://localhost:8080/find' \
+--header 'Authorization: Basic bmlrb2xhaToxMjM0NQ==' \
+--header 'Cookie: JSESSIONID=1F4F9DE69A5B2B2954B6A3C7FAAEC5C5'
+
+Resp:
+[
+    {
+        "name": "beer",
+        "owner": "nikolai"
+    },
+    {
+        "name": "candy",
+        "owner": "nikolai"
+    }
+]
+
+
+Scenario-2:
+curl --location --request GET 'http://localhost:8080/find' \
+--header 'Authorization: Basic anVsaWVuOjEyMzQ1' \
+--header 'Cookie: JSESSIONID=1F4F9DE69A5B2B2954B6A3C7FAAEC5C5'
+
+Resp:
+[
+    {
+        "name": "chocolate",
+        "owner": "julien"
+    }
+]

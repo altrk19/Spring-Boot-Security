@@ -1,0 +1,43 @@
+1. natalie  (own file)
+curl --location --request GET 'http://localhost:8080/documents/abc123' \
+--header 'Authorization: Basic bmF0YWxpZToxMjM0NQ==' \
+--header 'Cookie: JSESSIONID=7D910C2679149AF64659CCFEA72CEECF'
+
+Resp:
+{
+    "owner": "natalie"
+}
+
+2. natalie  (document dos not belong natalie and has admin role)
+curl --location --request GET 'http://localhost:8080/documents/asd555' \
+--header 'Authorization: Basic bmF0YWxpZToxMjM0NQ==' \
+--header 'Cookie: JSESSIONID=7D910C2679149AF64659CCFEA72CEECF'
+
+Resp:
+{
+    "owner": "emma"
+}
+
+3. emma (own file)
+curl --location --request GET 'http://localhost:8080/documents/asd555' \
+--header 'Authorization: Basic ZW1tYToxMjM0NQ==' \
+--header 'Cookie: JSESSIONID=7D910C2679149AF64659CCFEA72CEECF'
+
+Resp:
+{
+    "owner": "emma"
+}
+
+4. emma (document dos not belong emma and does not have admin role)
+curl --location --request GET 'http://localhost:8080/documents/abc123' \
+--header 'Authorization: Basic ZW1tYToxMjM0NQ==' \
+--header 'Cookie: JSESSIONID=7D910C2679149AF64659CCFEA72CEECF'
+
+Resp:
+{
+    "timestamp": "2022-11-03T13:19:03.487+0000",
+    "status": 403,
+    "error": "Forbidden",
+    "message": "Forbidden",
+    "path": "/documents/abc123"
+}

@@ -1,0 +1,21 @@
+1. Get token
+curl --location --request POST 'http://localhost:8080/oauth/token?grant_type=password&username=john&password=12345&scope=read' \
+--header 'Authorization: Basic Y2xpZW50OnNlY3JldA=='
+
+Response:
+{
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NjY5OTU3MTAsInVzZXJfbmFtZSI6ImpvaG4iLCJhdXRob3JpdGllcyI6WyJyZWFkIl0sImp0aSI6ImE3ZDdiOWE5LTcxNjMtNGFmOS05ZDAzLTkzMWVkODk5OTgwMiIsImNsaWVudF9pZCI6ImNsaWVudCIsInNjb3BlIjpbInJlYWQiXX0.WtrzZX2UFCihI8IA4U6seYmwjlkJh3rWsA9oo4z2aDk",
+    "token_type": "bearer",
+    "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJqb2huIiwic2NvcGUiOlsicmVhZCJdLCJhdGkiOiJhN2Q3YjlhOS03MTYzLTRhZjktOWQwMy05MzFlZDg5OTk4MDIiLCJleHAiOjE2Njk1NDQ1MTAsImF1dGhvcml0aWVzIjpbInJlYWQiXSwianRpIjoiZjE5ZDBjMWEtZTM1Yi00YWM0LTk1NjYtNmZjODA1OTgyMzZjIiwiY2xpZW50X2lkIjoiY2xpZW50In0.Wz1_mRDtxc85ByTf0SGjd-LtLKiWr36MUJtXGI5X8dg",
+    "expires_in": 43199,
+    "scope": "read",
+    "jti": "a7d7b9a9-7163-4af9-9d03-931ed8999802"
+}
+
+2. Use resource server Api
+curl --location --request GET 'http://localhost:9090/hello' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NjY5OTU3MTAsInVzZXJfbmFtZSI6ImpvaG4iLCJhdXRob3JpdGllcyI6WyJyZWFkIl0sImp0aSI6ImE3ZDdiOWE5LTcxNjMtNGFmOS05ZDAzLTkzMWVkODk5OTgwMiIsImNsaWVudF9pZCI6ImNsaWVudCIsInNjb3BlIjpbInJlYWQiXX0.WtrzZX2UFCihI8IA4U6seYmwjlkJh3rWsA9oo4z2aDk'
+
+Response:
+Hello
+
